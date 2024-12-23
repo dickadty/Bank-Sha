@@ -2,6 +2,9 @@ import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/ui/pages/Home/home_page.dart';
 import 'package:bank_sha/ui/pages/Home/pin_page.dart';
 import 'package:bank_sha/ui/pages/Home/profile_page.dart';
+import 'package:bank_sha/ui/pages/More/data_provider.dart';
+import 'package:bank_sha/ui/pages/More/package_provider.dart';
+import 'package:bank_sha/ui/pages/More/paket_succes.dart';
 import 'package:bank_sha/ui/pages/Profile/edit_pin.dart';
 import 'package:bank_sha/ui/pages/Profile/edit_profile.dart';
 import 'package:bank_sha/ui/pages/Profile/edit_succes.dart';
@@ -41,7 +44,7 @@ class MyApp extends StatelessWidget {
         "/": (context) => const HomePage(),
         "/onboarding1": (context) => const Onboarding1(),
         "/sign-in": (context) => const SignIn(),
-        "/sign-up": (context) => const SignUp(),
+        "/sign-up": (context) => SignUp(),
         "/upload": (context) => const Upload(),
         "/pic": (context) => const Pic(),
         "/passport": (context) => const Passport(),
@@ -58,6 +61,9 @@ class MyApp extends StatelessWidget {
         "/transfer": (context) => const TransferPage(),
         "/transfer-amount": (context) => const TransferAmount(),
         "/transfer-succes": (context) => const TransferSucces(),
+        "/data-provider": (context) => const DataProvider(),
+        "/package-provider": (context) => const PackageProvider(),
+        "/paket-succes":(context) => const PaketSucces(),
       },
     );
   }

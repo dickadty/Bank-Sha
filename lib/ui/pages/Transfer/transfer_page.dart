@@ -2,7 +2,7 @@
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/ui/widget/button.dart';
 import 'package:bank_sha/ui/widget/textform.dart';
-import 'package:bank_sha/ui/widget/transfer.result.dart';
+import 'package:bank_sha/ui/widget/transfer_result.dart';
 import 'package:bank_sha/ui/widget/transfer_recent.dart';
 import 'package:flutter/material.dart';
 

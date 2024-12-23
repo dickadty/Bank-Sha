@@ -12,6 +12,7 @@ Color blackColor = Color(0xff14193F);
 Color lightBackgroundColor = Color(0xffF6F8FB);
 Color greenColor = Color(0xff22B07D);
 Color darkBackgorund = Colors.black;
+Color redColor = Color(0xffFF5B5B);
 
 TextStyle blackTextSytle = GoogleFonts.poppins(
   color: blackColor

@@ -34,6 +34,7 @@ class EditPin extends StatelessWidget {
                   //EMAIL
                   children: [
                     const Textform(
+  
                       obscureText: true,
                       title: "Old Pin",
                     ),

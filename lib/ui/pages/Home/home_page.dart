@@ -1,3 +1,4 @@
+import 'package:bank_sha/shared/shared_method.dart';
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/ui/widget/home_friendly.dart';
 import 'package:bank_sha/ui/widget/home_send.dart';
@@ -180,7 +181,7 @@ class HomePage extends StatelessWidget {
             "Balance",
             style: whiteTextStyle.copyWith(fontSize: 14, fontWeight: medium),
           ),
-          Text("\$5,209,400",
+          Text(formatCurrency(2000000),
               style:
                   whiteTextStyle.copyWith(fontSize: 24, fontWeight: semiBold))
         ],
@@ -215,7 +216,7 @@ class HomePage extends StatelessWidget {
                     greenTextStyle.copyWith(fontSize: 14, fontWeight: semiBold),
               ),
               Text(
-                " of \$10M",
+                " of ${formatCurrency(1000000)}",
                 style:
                     blackTextSytle.copyWith(fontSize: 14, fontWeight: semiBold),
               )
@@ -306,13 +307,13 @@ class HomePage extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               color: whiteColor,
             ),
-            child: Column(
+            child:  Column(
               children: [
                 Latest(
                   urlImg: "assets/images/ic_TopUp_latest.png",
                   title: "ToupUp",
                   date: "Yesterday",
-                  value: "+ 450.000",
+                  value: "+ ${formatCurrency(450000, symbol: "")}",
                 ),
                 const SizedBox(
                   height: 16,
@@ -321,7 +322,7 @@ class HomePage extends StatelessWidget {
                   urlImg: "assets/images/ic_Cashback_latest.png",
                   title: "Cashback",
                   date: "Sep 11",
-                  value: "+ 22.000",
+                  value: "+ ${formatCurrency(100000, symbol: "")}",
                 ),
                 const SizedBox(
                   height: 16,
@@ -330,7 +331,7 @@ class HomePage extends StatelessWidget {
                   urlImg: "assets/images/ic_Withdraw_latest.png",
                   title: "Withdraw",
                   date: "Sep 2",
-                  value: "- 5.000",
+                  value: "+ ${formatCurrency(5000, symbol: "")}",
                 ),
                 const SizedBox(
                   height: 16,
@@ -339,7 +340,7 @@ class HomePage extends StatelessWidget {
                   urlImg: "assets/images/ic_Transfer_latest.png",
                   title: "Transfer",
                   date: "Aug 27",
-                  value: "- 123.500",
+                  value: "+ ${formatCurrency(1000000, symbol: "")}",
                 ),
                 const SizedBox(
                   height: 16,
@@ -348,7 +349,7 @@ class HomePage extends StatelessWidget {
                   urlImg: "assets/images/ic_Electric_latest.png",
                   title: "Electric",
                   date: "Feb 16",
-                  value: "- 12.300.000",
+                  value: "+ ${formatCurrency(1200000, symbol: "")}",
                 ),
               ],
             ),
@@ -447,11 +448,59 @@ class MoreDialog extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       content: Container(
         height: 326,
+        padding: EdgeInsets.all(30),
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(40),
           color: lightBackgroundColor,
         ),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            "Do More With Us",
+            style: blackTextSytle.copyWith(fontSize: 16, fontWeight: semiBold),
+          ),
+          const SizedBox(
+            height: 13,
+          ),
+          Wrap(
+            spacing: 52,
+            runSpacing: 29,
+            children: [
+              HomeServices(
+                title: "Data",
+                urlImg: "assets/images/ic_data.png",
+                ontap: () {
+                  Navigator.pushNamed(context, '/data-provider');
+                },
+              ),
+              HomeServices(
+                title: "Water",
+                urlImg: "assets/images/ic_water.png",
+                ontap: () {},
+              ),
+              HomeServices(
+                title: "Stream",
+                urlImg: "assets/images/ic_stream.png",
+                ontap: () {},
+              ),
+              HomeServices(
+                title: "Movie",
+                urlImg: "assets/images/ic_movie.png",
+                ontap: () {},
+              ),
+              HomeServices(
+                title: "Food",
+                urlImg: "assets/images/ic_food.png",
+                ontap: () {},
+              ),
+              HomeServices(
+                title: "Travel",
+                urlImg: "assets/images/ic_travel.png",
+                ontap: () {},
+              ),
+            ],
+          ),
+        ]),
       ),
     );
   }

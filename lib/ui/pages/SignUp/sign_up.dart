@@ -1,11 +1,30 @@
+import 'package:bank_sha/shared/shared_method.dart';
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/ui/widget/button.dart';
 import 'package:bank_sha/ui/widget/textform.dart';
 import 'package:flutter/material.dart';
 
-class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+class SignUp extends StatefulWidget {
+  final nameController = TextEditingController(text: "");
+  final emailController = TextEditingController(text: "");
+  final passwordController = TextEditingController(text: "");
 
+  bool validate() {
+    if (nameController.text.isEmpty ||
+        emailController.text.isEmpty ||
+        passwordController.text.isEmpty) {
+          return false;
+        }
+    return true;
+  }
+
+  SignUp({super.key});
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,14 +56,15 @@ class SignUp extends StatelessWidget {
             child: Column(
                 //EMAIL
                 children: [
-                  const Textform(
-                    
+                  Textform(
+                    controller: widget.nameController,
                     title: "Full Name",
                   ),
                   const SizedBox(
                     height: 16,
                   ),
-                  const Textform(
+                  Textform(
+                    controller: widget.emailController,
                     obscureText: false,
                     title: "Email Addres",
                   ),
@@ -52,7 +72,8 @@ class SignUp extends StatelessWidget {
                     height: 16,
                   ),
                   // Password
-                  const Textform(
+                  Textform(
+                    controller: widget.passwordController,
                     obscureText: true,
                     title: "Password",
                   ),
@@ -62,8 +83,12 @@ class SignUp extends StatelessWidget {
                   CustomFilledButton(
                     title: "CONTINUE",
                     onPressed: () {
-                      Navigator.pushNamed(context, '/upload');
+                    if(widget.validate()){
+                       Navigator.pushNamed(context, '/upload');
+                    }
+                     return showCustomSnackbar(context, "Please fill all fields");
                     },
+                    
                   )
                 ]),
           ),

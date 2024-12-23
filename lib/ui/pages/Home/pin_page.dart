@@ -1,6 +1,9 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:bank_sha/shared/theme.dart';
 import 'package:bank_sha/ui/widget/button.dart';
 import 'package:flutter/material.dart';
+
+import '../../../shared/shared_method.dart';
 
 class PinPage extends StatefulWidget {
   const PinPage({super.key});
@@ -19,8 +22,13 @@ class _PinPageState extends State<PinPage> {
       });
     }
 
-    if (pinController.text == '123456') {
-      Navigator.pop(context, true);
+    if (pinController.text.length == 6) {
+      if (pinController.text == '123456') {
+        Navigator.pop(context, true);
+      } else {
+        showCustomSnackbar(
+            context, "PIN yang anda masukkan salah. Silakan coba lagi.");
+      }
     }
   }
 
@@ -39,14 +47,16 @@ class _PinPageState extends State<PinPage> {
       backgroundColor: darkBackgorund,
       body: SafeArea(
         child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 57,),
+          margin: const EdgeInsets.symmetric(
+            horizontal: 57,
+          ),
           child: Center(
             child: Column(
               children: [
                 Text(
                   "Sha PIN",
-                  style:
-                      whiteTextStyle.copyWith(fontSize: 20, fontWeight: semiBold),
+                  style: whiteTextStyle.copyWith(
+                      fontSize: 20, fontWeight: semiBold),
                 ),
                 const SizedBox(
                   height: 72,

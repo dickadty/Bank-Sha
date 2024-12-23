@@ -2,6 +2,7 @@ import 'package:bank_sha/shared/theme.dart';
 import 'package:flutter/material.dart';
 
 class Textform extends StatelessWidget {
+  final TextEditingController? controller;
   final String title;
   final bool obscureText;
   final bool isShowTitle;
@@ -10,6 +11,7 @@ class Textform extends StatelessWidget {
   final Color? borderColor; // Tambahkan properti untuk warna border
 
   const Textform({
+    this.controller,
     this.filledcolor,
     this.filled = true,
     required this.title,
